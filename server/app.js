@@ -1,5 +1,6 @@
 var express = require('express');
 var db = require('./db');
+var mysql = require('./db/index.js');
 
 // Middleware
 var morgan = require('morgan');
@@ -30,3 +31,4 @@ if (!module.parent) {
   console.log('Listening on', app.get('port'));
 }
 
+// Connect to mysql server

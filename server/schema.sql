@@ -13,13 +13,13 @@ USE chat;
 -- );
 
 CREATE TABLE messages (
-  id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  objectId SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
   -- user SMALLINT UNSIGNED NOT NULL,
-  user VARCHAR(32),
+  username VARCHAR(32),
   text VARCHAR(150),
   roomname VARCHAR(32),
-  time_created TIMESTAMP,
-  PRIMARY KEY (id)
+  createdAt TIMESTAMP,
+  PRIMARY KEY (objectId)
   -- CONSTRAINT FOREIGN KEY user references users id
   -- FOREIGN KEY (user)
   --   REFERENCES users(id)

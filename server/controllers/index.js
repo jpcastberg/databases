@@ -5,16 +5,21 @@ module.exports = {
   messages: {
     get: function (req, res) {
 
-      // read all mysql database
-      // write it to response
       models.messages.get((data) => {
-        console.log('dis the data: ', data);
-        res.write(JSON.stringify(data));
+        var results = { results: data };
+        res.write(JSON.stringify(results));
         res.status(200);
         res.end();
       });
     },
-    post: function (req, res) { },
+    post: function (req, res) {
+      models.messages.post(req.body, (data) => {
+        console.log('Data from post request: ', data);
+        res.write(JSON.stringify(data));
+        res.status(201);
+        res.end();
+      });
+    },
   },
 
   users: {

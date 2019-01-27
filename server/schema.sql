@@ -6,11 +6,11 @@ USE chat;
 
 /* Create other tables and define schemas for them here! */
 
--- CREATE TABLE users (
---   id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
---   username VARCHAR(32),
---   PRIMARY KEY (id)
--- );
+CREATE TABLE users (
+  id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  username VARCHAR(32),
+  PRIMARY KEY (id)
+);
 
 CREATE TABLE messages (
   objectId SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,

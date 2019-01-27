@@ -4,7 +4,7 @@ var App = {
 
   username: 'anonymous',
 
-  initialize: function() {
+  initialize: function () {
     App.username = window.location.search.substr(10);
 
     FormView.initialize();
@@ -18,27 +18,26 @@ var App = {
 
     // Poll for new messages every 3 sec
     setInterval(App.fetch, 3000);
-      },
+  },
 
-  fetch: function(callback = ()=>{}) {
+  fetch: function (callback = () => { }) {
     Parse.readAll((data) => {
-
       // Don't bother to update if we have no messages
       if (!data.results || !data.results.length) { return; }
 
       Rooms.update(data.results, RoomsView.render);
       Messages.update(data.results, MessagesView.render);
-      
+
       callback();
     });
   },
 
-  startSpinner: function() {
+  startSpinner: function () {
     App.$spinner.show();
     FormView.setStatus(true);
   },
 
-  stopSpinner: function() {
+  stopSpinner: function () {
     App.$spinner.fadeOut('fast');
     FormView.setStatus(false);
   }
